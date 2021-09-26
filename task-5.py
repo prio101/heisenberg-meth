@@ -35,38 +35,58 @@ def find_s_o_bonds(file, line_number):
       dump_data_arr.append(file[current_line])
     else:
       'I am Pickle-Rick'
-  so_bonds_result_arr = get_so_result(co_ordinates_sulfer, co_ordinates_oxygen)
-
-  create_file()
-  file = open('./result_set_quiz_5', 'a')  
+  get_so_result(co_ordinates_sulfer, co_ordinates_oxygen)
+  
   
 def get_the_immidiate_lines_blocks(file, line_number):
   line_number_for_the_separator_count = 0
   separator_line_threshold = 3
   separator = '-'*69
   current_line = line_number    
-
+  result = []
   for current_line in file:    
     if(separator in file[current_line] and line_number_for_the_separator_count <= separator_line_threshold):
       line_number_for_the_separator_count = line_number_for_the_separator_count + 1
 
     while(line_number_for_the_separator_count < 3):
-      find_s_o_bonds(file, current_line)
+      result = find_s_o_bonds(file, current_line)
+
+  return result
 
 def read_the_messy_files(files_list):
   key_words = 'Input orientation:'  
+  
+  dipole_moment = 'Dipole moment'
 
   line_for_input_orientation = 0
   
+  # create result file
+  create_file()
+  result_file = open('./result_set_quiz_5', 'a')
+
   for file_name in files_list:
     file = open(file_name, 'r').readlines()
     line_lengths = len(file)
-
+    result_set
+    total_dipole_moment
     for line_number in range(line_lengths):
       if key_words in file[line_number]:
         line_for_input_orientation = line_number
-        get_the_immidiate_lines_blocks(file, line_for_input_orientation)
-
+        result_set = get_the_immidiate_lines_blocks(file, line_for_input_orientation)
+      if dipole_moment in file[line_number]:
+        # do something
+        current_line = line_number + 1
+        for current_line in file:
+          total_dipole_moment = file[current_line].split("=")[-1]
+    
+  result_file.write('Dipole Moment | SO bond', 'a')
+  result_file.write('-----------------------------', 'a') 
+  
+  # elem = element  
+  for elem in result_set:
+    result_file.write(f'{total_dipole_moment} - {result_set[elem]}', 'a')
+    
+  
 def main():
   folder_name = 'a1q5'
   path_name = './'
