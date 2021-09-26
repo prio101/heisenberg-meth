@@ -27,7 +27,7 @@ def get_the_value_y_for_single_file_and_row_and_store(file_name, current_line):
 
 
 def create_file(result_file_name):
-  file = open(result_file_name, "x")
+  file = open('./'+result_file_name, "x")
   file.close()
 
 def main():
