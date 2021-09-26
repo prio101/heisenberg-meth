@@ -5,12 +5,18 @@ def find_s_o_bonds(file, line_number):
   oxygen_atomic_number = 8
   current_line = line_number
   
-  dmup_data_arr = []
+
+  dump_data_arr = []
 
   for current_line in file:
-    if sulfer_atomic_number in file[current_line] or oxygen_atomic_number in file[current_line]:
-      dmup_data_arr.append(file[current_line])
-
+    second_col = file[current_line].split(' ')[1]
+    if(sulfer_atomic_number in second_col):      
+      co_ordinates_sulfer = file[current_line].split(' ')[-3]  
+      dump_data_arr.append(file[current_line])
+    elif(oxygen_atomic_number in second_col):
+      co_ordinates_oxygen = file[current_line].split(' ')[-3]  
+      dump_data_arr.append(file[current_line])
+    
 
 def get_the_immidiate_lines_blocks(file, line_number):
   line_number_for_the_separator_count = 0
