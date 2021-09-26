@@ -9,8 +9,10 @@ def name_bringer(alphanumeric_word):
   # getting the last elem [36] or [78]
   return alphanumeric_word.split('data')[-1] 
 
-def get_the_value_y_for_single_file_and_store(file_name):
-  return 'mango'
+def get_the_value_y_for_single_file_and_row_and_store(file_name, current_row):
+  print(file_name)
+  file = open('./a1q3/'+ file_name).readlines()
+  print(file)
 
 def main():
   # file = open("./a1q3/data36.dat").readlines()
@@ -33,16 +35,17 @@ def main():
   print(result_file_name(start_file_name, last_file_name))
 
   big_chunky_y_holder = []
+  current_row = 0
 
   for file in list_dir:
-    y_value = get_the_value_y_for_single_file_and_store(file)
+    y_value = get_the_value_y_for_single_file_and_row_and_store(file, current_row)
     
     # putting the single 
     # y value into big_chunky_y_array
     big_chunky_y_holder.append(y_value)
     print(big_chunky_y_holder)
 
-    
+
 if __name__ == "__main__":
   main()
   
