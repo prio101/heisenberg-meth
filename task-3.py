@@ -8,6 +8,7 @@ def result_file_name(start_file_name, last_file_name):
 def name_bringer(alphanumeric_word):
   # getting the last elem [36] or [78]
   return alphanumeric_word.split('data')[-1] 
+  # ['DATA', '36']
 
 def get_the_value_y_for_single_file_and_row_and_store(file_name, current_line):
   print(file_name)
@@ -20,9 +21,10 @@ def get_the_value_y_for_single_file_and_row_and_store(file_name, current_line):
   print('-'*100)
   print(current_line)
   print('-'*100)
-  print(file[current_line].split(' ')[0])
+  print(file[current_line].split(' ')[-1])
+  # "x  y" -> ['x', 'y'] -> [-1] -> last -> y
 
-  return file[current_line].split(' ')[0]
+  return file[current_line].split(' ')[-1]
 
 
 def main():
@@ -31,6 +33,7 @@ def main():
 
   # list all the files in directory /a1q3
   list_dir = os.listdir("./a1q3")
+  # list_dir = ['data36.dat', 'data37.dat',.... n]
   
   # first array index will be the start file name
   start_file_name = list_dir[0]
@@ -53,12 +56,13 @@ def main():
   max_lines_per_file = len(file) 
 
   for current_line in range(max_lines_per_file):
+    # -> current_line = 0
     for file in list_dir:
       y_value = get_the_value_y_for_single_file_and_row_and_store(file, current_line)
     
       # putting the single 
       # y value into big_chunky_y_array
-      big_chunky_y_holder.append(y_value)
+      big_chunky_y_holder.append(float(y_value))
       # print(big_chunky_y_holder)
     average = sum(big_chunky_y_holder) / len(big_chunky_y_holder)
     average_y_holder.append(average)
@@ -68,9 +72,21 @@ def main():
     # current line will add up to current_line + 1
     current_line = current_line + 1
   
-  print(big_chunky_y_holder)
+  print(average_y_holder)
+
+  # create a virtual file
+  # put x , y
+  # save file
 
 
 if __name__ == "__main__":
   main()
   
+
+
+  # 36 file line 1 -> y value
+  # 37 file line 1 -> y value
+  # 38 file line 1 -> y value
+  # ...
+
+  # y_holder = [y_value, y_value , ...]
