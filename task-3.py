@@ -80,7 +80,7 @@ def main():
   # create a file
   # put x , y
   # save file
-  create_file(result_file_name)
+  create_file(result_file)
   
   # because all files have same x value
   file = open('./a1q3/data36.dat')
