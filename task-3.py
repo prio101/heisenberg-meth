@@ -1,4 +1,3 @@
-import csv
 import os
 
 def result_file_name(start_file_name, last_file_name):
@@ -26,6 +25,10 @@ def get_the_value_y_for_single_file_and_row_and_store(file_name, current_line):
 
   return file[current_line].split(' ')[-1]
 
+
+def create_file(result_file_name):
+  file = open(result_file_name, "x")
+  file.close()
 
 def main():
   # file = open("./a1q3/data36.dat").readlines()
@@ -74,10 +77,27 @@ def main():
   
   print(average_y_holder)
 
-  # create a virtual file
+  # create a file
   # put x , y
   # save file
+  create_file(result_file_name)
+  
+  # because all files have same x value
+  file = open('./a1q3/data36.dat')
+  new_file = open(result_file_name, 'a')
 
+  for current_line in range(max_lines_per_file):    
+    x = file[current_line].split(' ')[0]
+    print("x :", x)
+    new_file.write(x + ' ' + average_y_holder[current_line])
+    current_line = current_line + 1
+  
+  # close the buffer
+  file.close()
+  new_file.close()
+
+  f = open(result_file_name)
+  print(f)
 
 if __name__ == "__main__":
   main()
@@ -90,3 +110,4 @@ if __name__ == "__main__":
   # ...
 
   # y_holder = [y_value, y_value , ...]
+  
