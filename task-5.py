@@ -35,23 +35,11 @@ def find_s_o_bonds(file, line_number):
       dump_data_arr.append(file[current_line])
     else:
       'I am Pickle-Rick'
-
   so_bonds_result_arr = get_so_result(co_ordinates_sulfer, co_ordinates_oxygen)
-
-  # create file
-  # put tabular data
-  # tmd | so_bonds
-  
-  # find_tmd()
-
-  tmd_list = []
 
   create_file()
   file = open('./result_set_quiz_5', 'a')  
   
-
-
-
 def get_the_immidiate_lines_blocks(file, line_number):
   line_number_for_the_separator_count = 0
   separator_line_threshold = 3
