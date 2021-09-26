@@ -92,6 +92,8 @@ def main():
   path_name = './'
 
   files_list = os.listdir(path_name+folder_name)
+  # ./a1q5
+  # ['file1.ext', 'file2.ext',....]
   read_the_messy_files(files_list)
 
 if __name__ == "__main__":
